@@ -1,4 +1,5 @@
 import { FontAwesome } from "@expo/vector-icons";
+import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
@@ -8,20 +9,20 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
-
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import TabOneScreen from "../screens/TabOneScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
 } from "../../types";
-
 import LinkingConfiguration from "./LinkingConfiguration";
+import HomeScreen from "../screens/HomeScreen";
+import PortofolioScreen from "../screens/PortofolioScreen";
+import MarketScreen from "../screens/MarketScreen";
+import RankingsScreen from "../screens/RankingsScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 
 export default function Navigation({
   colorScheme,
@@ -53,9 +54,6 @@ function RootNavigator() {
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
       />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
     </Stack.Navigator>
   );
 }
@@ -74,10 +72,10 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="Home"
-        component={TabOneScreen}
+        component={HomeScreen}
         options={({ navigation }: RootTabScreenProps<"Home">) => ({
-          title: "Home",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate("Modal")}
@@ -87,7 +85,7 @@ function BottomTabNavigator() {
             >
               <FontAwesome
                 name="info-circle"
-                size={25}
+                size={30}
                 color={Colors[colorScheme].text}
                 style={{ marginRight: 15 }}
               />
@@ -97,34 +95,46 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Portofolio"
-        component={TabTwoScreen}
+        component={PortofolioScreen}
         options={{
-          title: "Portofolio",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="pie-chart" color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
         name="Market"
-        component={TabTwoScreen}
+        component={MarketScreen}
         options={{
-          title: "Market",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Entypo name="area-graph" size={30} color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
         name="Rankings"
-        component={TabTwoScreen}
+        component={RankingsScreen}
         options={{
-          title: "Rankings",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="ios-podium-outline" size={30} color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
         name="Profile"
-        component={TabTwoScreen}
+        component={ProfileScreen}
         options={{
-          title: "Profile",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="face-profile"
+              size={24}
+              color={color}
+            />
+          ),
         }}
       />
     </BottomTab.Navigator>
