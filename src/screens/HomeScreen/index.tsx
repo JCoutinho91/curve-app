@@ -1,12 +1,12 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 import styles from "./styles";
-const image = require("../../../assets/images/Crypto.png");
+const logoimg = require("../../../assets/images/Crypto.png");
 
 const HomeScreen = () => {
   return (
     <View style={styles.root}>
-      <Image style={styles.image} source={image} />
+      <Image style={styles.image} source={logoimg} />
 
       <Text style={styles.header1}>Start Your Investing Journey Here!</Text>
       <Text style={styles.header2}>

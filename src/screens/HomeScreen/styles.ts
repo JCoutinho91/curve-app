@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   header1: {
     marginTop: -100,
     fontSize: 30,
-    color: "darkblue",
+    color: "#12229D",
     fontWeight: "bold",
     textAlign: "center",
     padding: 20,
