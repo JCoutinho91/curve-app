@@ -23,15 +23,18 @@ const styles = StyleSheet.create({
 
   name: {
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 20,
   },
   symbol: {
-    color: "#6b6b6b",
+    color: "grey",
   },
 
   valueUSD: {
     fontSize: 20,
-    fontWeight: "600",
+    fontWeight: "bold",
+  },
+  amount: {
+    color: "grey",
   },
 });
 

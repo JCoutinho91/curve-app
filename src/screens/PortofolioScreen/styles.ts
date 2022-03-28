@@ -7,24 +7,27 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 400,
-    height: 400,
-    backgroundColor: "#12229D",
+    width: 200,
+    height: 200,
     resizeMode: "contain",
+    marginTop: 30,
   },
 
   balanceContainer: {
+    paddingLeft: 20,
+    paddingRight: 20,
     width: "100%",
   },
 
   label: {
     fontSize: 20,
+    alignItems: "center",
     color: "black",
   },
 
   balance: {
-    fontSize: 35,
-    color: "green",
+    fontSize: 40,
+    color: "black",
     fontWeight: "bold",
   },
 });
