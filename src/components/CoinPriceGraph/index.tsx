@@ -21,19 +21,19 @@ const CoinPriceGraph = ({ dataString }: CoinPriceGraphProps) => {
             },
           ],
         }}
-        width={Dimensions.get("window").width - 20} // from react-native
+        width={Dimensions.get("window").width - 20}
         height={220}
         yAxisLabel="$"
-        yAxisSuffix="k"
+        yAxisSuffix=""
         withOuterLines={false}
         withInnerLines={false}
-        yAxisInterval={1} // optional, defaults to 1
+        yAxisInterval={1}
         chartConfig={{
           backgroundColor: "#ffffff",
           backgroundGradientFrom: "#ffffff",
           backgroundGradientTo: "#ffffff",
-          decimalPlaces: 2, // optional, defaults to 2dp
-          color: (opacity = 1) => `rgba(18, 85, 255, ${opacity})`,
+          decimalPlaces: 2,
+          color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
           style: {
             borderRadius: 16,
