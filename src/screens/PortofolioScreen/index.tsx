@@ -32,20 +32,36 @@ const PortfolioCoins = [
     amount: 0.55,
     valueUSD: 400,
   },
+  {
+    id: 4,
+    name: "BitCoin",
+    image:
+      "https://einvestidor.estadao.com.br/wp-content/uploads/sites/715/2021/01/20210107t192453z-1-lynxmpeh061eb-rtroptp-4-techbitcoinquarenta_110120214024.jpg",
+    symbol: "USD",
+    amount: 0.55,
+    valueUSD: 400,
+  },
 ];
 
 const PortofolioScreen = () => {
   return (
     <View style={styles.root}>
-      <Image style={styles.image} source={portfolioimg} />
-      <View style={styles.balanceContainer}>
-        <Text style={styles.label}>Portfolio Balance</Text>
-        <Text style={styles.balance}>$69,420</Text>
-        <FlatList
-          data={PortfolioCoins}
-          renderItem={({ item }) => <PortfolioCoin portfolioCoin={item} />}
-        />
-      </View>
+      <FlatList
+        style={{ width: "100%" }}
+        data={PortfolioCoins}
+        renderItem={({ item }) => <PortfolioCoin portfolioCoin={item} />}
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponentStyle={{ alignItems: "center" }}
+        ListHeaderComponent={() => (
+          <>
+            <Image style={styles.image} source={portfolioimg} />
+            <View style={styles.balanceContainer}>
+              <Text style={styles.label}>Portfolio Balance</Text>
+              <Text style={styles.balance}>$69,420</Text>
+            </View>
+          </>
+        )}
+      />
     </View>
   );
 };
