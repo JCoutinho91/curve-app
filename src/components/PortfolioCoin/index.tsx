@@ -1,5 +1,6 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Pressable } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 
 export interface PortfolioCoinProps {
@@ -17,10 +18,15 @@ const PortfolioCoin = (props: PortfolioCoinProps) => {
     portfolioCoin: { image, name, symbol, amount, valueUSD },
   } = props;
 
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.root}>
+    <Pressable
+      style={styles.root}
+      onPress={() => navigation.navigate("CoinDetails")}
+    >
       <View style={styles.left}>
-        <Image style={styles.image} source={{ uri: image }} />
+        <Image style={styles.image} source={{ uri: image as any }} />
         <View>
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.symbol}>{symbol}</Text>
@@ -32,7 +38,7 @@ const PortfolioCoin = (props: PortfolioCoinProps) => {
           {symbol} {amount}
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
